@@ -12,8 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white
+        primaryColor: Color(0xff707070),
+        accentColor: Color(0xffcc2626),
+        backgroundColor: Colors.white
       ),
       title: 'NewsApp',
       home: HomePage(),

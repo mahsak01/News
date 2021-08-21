@@ -23,20 +23,20 @@ class News {
   String image="";
 
   //data of news
-  String data="";
+  String date="";
 
   //Constructor
   News(this.id, this.url, this.title, this.text, this.publisher, this.author,
-      this.image, this.data);
+      this.image, this.date);
 
   News.fromeJson(Map<String, dynamic> json) {
-    id = json['id'];
-    url = json['url'];
-    title = json['title'];
-    text = json['text'];
-    publisher = json['publisher'];
-    author = json['author'];
-    image = json['image'];
-    data = json['data'];
+    this.id = json['id'];
+    this.url = json['url'];
+    this.title = json['title'];
+    this.text = json['text'];
+    this.publisher = json['publisher'];
+    this.author = json['author'];
+    this.image = json['image'];
+    this.date = json['date'];
   }
 }
