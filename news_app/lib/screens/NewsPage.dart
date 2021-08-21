@@ -1,3 +1,4 @@
+import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/models/News.dart';
 import 'package:news_app/models/ProviderControl.dart';
@@ -57,22 +58,24 @@ class NewsPage extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(30))),
                               ),
-                              if(context.watch<ProviderControl>().width==1) Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                      color: Theme.of(context).backgroundColor,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    icon: Icon(
-                                      Icons.arrow_back_ios_rounded,
-                                      color: Theme.of(context).primaryColor,
+                              if(context.watch<ProviderControl>().width==1) FadeAnimation(
+                                1, Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                        color: Theme.of(context).backgroundColor,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    child: IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.arrow_back_ios_rounded,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
                                     ),
                                   ),
                                 ),
