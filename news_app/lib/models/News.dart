@@ -1,45 +1,42 @@
 // ignore: file_names
 //News Models
-class News{
-
+class News {
   //id of news
-  String id;
+  String id="";
 
   //url of news
-  String url;
+  String url="";
 
   //title of news
-  String title;
+  String title="";
 
   //text of news
-  String text;
+  String text="";
 
   //publisher of news
-  String publisher;
+  String publisher="";
 
   //author of news
-  String author;
-
+  String author="";
 
   //image of news
-  String image;
+  String image="";
 
   //data of news
-  String data;
-
+  String data="";
 
   //Constructor
   News(this.id, this.url, this.title, this.text, this.publisher, this.author,
       this.image, this.data);
 
-  NewsformJson(Map<String, dynamic> json){
-    id=json['id'];
-    url=json['url'];
-    title=json['title'];
-    text=json['text'];
-    publisher=json['publisher'];
-    author=json['author'];
-    image=json['image'];
-    data=json['data'];
+  News.fromeJson(Map<String, dynamic> json) {
+    id = json['id'];
+    url = json['url'];
+    title = json['title'];
+    text = json['text'];
+    publisher = json['publisher'];
+    author = json['author'];
+    image = json['image'];
+    data = json['data'];
   }
 }
