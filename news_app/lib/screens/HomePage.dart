@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/models/News.dart';
 import 'package:http/http.dart' as http;
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ///news list
   static List<News> _news = [];
-  static List<News> _newsInApp = [News("1","dgvd","hi","sdgvdsgv","dsfgvsdgv","dfgvdfvg","","sdfsdf")];
+  static List<News> _newsInApp = [];
 
   /// init state
   @override
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView.builder(
           itemCount: _newsInApp.length,
           itemBuilder: (context, index) {
-            return ListItem(_newsInApp[index]);
+            return  FadeAnimation(0.5*index, ListItem(_newsInApp[index]));
           },
         ),
       ),

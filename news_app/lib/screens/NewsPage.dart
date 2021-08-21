@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/News.dart';
+import 'package:news_app/models/ProviderControl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
 
 
-//News page
+///News page
 class NewsPage extends StatelessWidget {
   ///news object
   News news;
@@ -21,6 +23,7 @@ class NewsPage extends StatelessWidget {
             return true;
           },
           child: ListView(
+            controller: context.watch<ProviderControl>().scrollController,
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             children: [
@@ -29,9 +32,11 @@ class NewsPage extends StatelessWidget {
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(20),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.width * 1,
+                  child: AnimatedContainer(
+                    width: MediaQuery.of(context).size.width*context.watch<ProviderControl>().width,
+                    height: MediaQuery.of(context).size.width * context.watch<ProviderControl>().width,
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.fastOutSlowIn,
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
@@ -52,7 +57,7 @@ class NewsPage extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(30))),
                               ),
-                              Padding(
+                              if(context.watch<ProviderControl>().width==1) Padding(
                                 padding: const EdgeInsets.all(15),
                                 child: Container(
                                   width: 40,
@@ -81,8 +86,8 @@ class NewsPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                             child: Image.network(
                               news.image,
-                              width: MediaQuery.of(context).size.width * 2 / 3,
-                              height: MediaQuery.of(context).size.width * 2 / 3,
+                              width: (MediaQuery.of(context).size.width * 2 / 3)*context.watch<ProviderControl>().width,
+                              height: (MediaQuery.of(context).size.width * 2 / 3)*context.watch<ProviderControl>().width,
                               fit: BoxFit.fill,
                             ),
                           ),

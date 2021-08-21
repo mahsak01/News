@@ -1,9 +1,17 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/foundation.dart';
+import 'models/ProviderControl.dart';
 import 'screens/HomePage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ProviderControl()),
+        ],
+        child: const MyApp(),
+      ));
 }
 
 class MyApp extends StatelessWidget {
