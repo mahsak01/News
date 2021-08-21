@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ///news list
   static List<News> _news = [];
-  static List<News> _newsInApp = [];
+  static List<News> _newsInApp = [News("1","dgvd","hi","sdgvdsgv","dsfgvsdgv","dfgvdfvg","","sdfsdf")];
 
   /// init state
   @override
