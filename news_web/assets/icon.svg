@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="103" viewBox="0 0 256 103">
+  <g id="Group_7" data-name="Group 7" transform="translate(-111 -304)">
+    <rect id="Rectangle_22" data-name="Rectangle 22" width="61" height="103" transform="translate(111 304)" fill="#707070"/>
+    <rect id="Rectangle_23" data-name="Rectangle 23" width="61" height="103" transform="translate(176 304)" fill="#cc2626"/>
+    <rect id="Rectangle_24" data-name="Rectangle 24" width="61" height="103" transform="translate(241 304)" fill="#707070"/>
+    <rect id="Rectangle_25" data-name="Rectangle 25" width="61" height="103" transform="translate(306 304)" fill="#cc2626"/>
+    <text id="N" transform="translate(118 381)" fill="#fff" font-size="63" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">N</tspan></text>
+    <text id="E" transform="translate(191 381)" fill="#fff" font-size="63" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">E</tspan></text>
+    <text id="W" transform="translate(242 381)" fill="#fff" font-size="63" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">W</tspan></text>
+    <text id="S" transform="translate(320 381)" fill="#fff" font-size="63" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">S</tspan></text>
+  </g>
+</svg>
