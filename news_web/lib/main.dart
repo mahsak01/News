@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/HomePage.dart';
+import 'screens/HomePageMax.dart';
 void main(){
   runApp(MyApp());
 }
