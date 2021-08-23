@@ -47,8 +47,6 @@ class HomePageMin extends StatelessWidget {
                         height: 100,
                         width:  MediaQuery.of(context).size.width/12,
                       ),
-
-
                     ],
                   )
                 ],
