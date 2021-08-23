@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:news_web/models/PublicValue.dart';
 import 'package:news_web/screens/HomePageMin.dart';
+import 'package:news_web/widgets/ItemsMax.dart';
 
 
 ///home page
@@ -110,6 +112,19 @@ class HomePageMax extends StatelessWidget {
             Container(
               color: Theme.of(context).accentColor,
               width:  MediaQuery.of(context).size.width/12,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width*11/12,
+              child: GridView.count(
+                  childAspectRatio: (180 / 320),
+                  scrollDirection: Axis.vertical,
+                  crossAxisSpacing: 5,
+                  crossAxisCount: ((MediaQuery.of(context).size.width/320).floor()==1)?2:(MediaQuery.of(context).size.width/320).floor(),
+                  shrinkWrap: true,
+                  children: List.generate(newsInApp.length, (index) {
+                    return  SizedBox(width: 320,child: ItemsMax(newsInApp[index]));
+                  }).toList()
+              ),
             )
           ],
         ),

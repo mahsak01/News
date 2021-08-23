@@ -2,13 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:news_web/models/PublicValue.dart';
+import 'package:news_web/widgets/itemsMin.dart';
 
 
 ///home page
 class HomePageMin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return Scaffold(
       ///app bar
       appBar: PreferredSize(
@@ -76,19 +77,26 @@ class HomePageMin extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width*10/12,
+                child: ListView.builder(itemBuilder: (context ,index){
+                  return ItemsMin(newsInApp[index]);
+                },
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: newsInApp.length,),
+              ),
+            ),
+
             Container(
               color: Theme.of(context).accentColor,
               width:  MediaQuery.of(context).size.width/12,
             ),
             Container(
-              color: Theme.of(context).backgroundColor,
-              width:  MediaQuery.of(context).size.width/12,
-            ),
-            Container(
               color: Theme.of(context).primaryColor,
               width:  MediaQuery.of(context).size.width/12,
-            )
-
+            ),
 
           ],
         ),
