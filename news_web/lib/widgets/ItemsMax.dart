@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_web/models/News.dart';
+import 'package:news_web/screens/NewsPage.dart';
 import 'package:sizer/sizer.dart';
 
 /// list item of news
@@ -15,10 +16,10 @@ class ItemsMax extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: GestureDetector(
         onTap: (){
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => NewsPage(news)),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewsPage(news)),
+          );
         },
         child: Container(
             decoration: BoxDecoration(
@@ -28,7 +29,7 @@ class ItemsMax extends StatelessWidget {
                   BoxShadow(color: Theme.of(context).primaryColor, blurRadius: 1)
                 ]),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
 
               children: [
@@ -50,7 +51,7 @@ class ItemsMax extends StatelessWidget {
                 ///text news
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(

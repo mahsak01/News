@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_web/models/News.dart';
+import 'package:news_web/screens/NewsPage.dart';
 
 /// list item of news
 class ItemsMin extends StatelessWidget {
@@ -14,10 +15,10 @@ class ItemsMin extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: GestureDetector(
         onTap: (){
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => NewsPage(news)),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewsPage(news)),
+          );
         },
         child: Container(
             decoration: BoxDecoration(
