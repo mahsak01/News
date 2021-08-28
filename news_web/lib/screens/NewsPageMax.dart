@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:news_web/models/News.dart';
@@ -112,154 +113,163 @@ class NewsPageMax extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width/2,
-                height: MediaQuery.of(context).size.height,
-                child: Center(
-                  child: Stack(
-                    alignment: Alignment.centerRight,
-                    children: [
+            FadeAnimation(0.5, Padding(
+                padding: const EdgeInsets.all(20),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width/2,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Stack(
+                      alignment: Alignment.centerRight,
+                      children: [
 
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width/2.7,
-                            height:  MediaQuery.of(context).size.height/2,
-                            color: Theme.of(context).backgroundColor,
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width/2.7,
+                              height:  MediaQuery.of(context).size.height/2,
+                              color: Theme.of(context).backgroundColor,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width/3,
+                              height:  MediaQuery.of(context).size.width/2.5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(30)),
+                                color: Theme.of(context).accentColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*3.5/12,
+                          height: MediaQuery.of(context).size.width*3.5/12,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            color: Theme.of(context).primaryColor,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width/3,
-                            height:  MediaQuery.of(context).size.width/2.5,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                              color: Theme.of(context).accentColor,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              news.image,
+                              width: MediaQuery.of(context).size.width*3/12,
+                              height: MediaQuery.of(context).size.width*3/12,
+                              fit: BoxFit.fill,
                             ),
                           ),
-                        ],
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width*3.5/12,
-                        height: MediaQuery.of(context).size.width*3.5/12,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          color: Theme.of(context).primaryColor,
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            news.image,
-                            width: MediaQuery.of(context).size.width*3/12,
-                            height: MediaQuery.of(context).size.width*3/12,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
 
 
 
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width/3,
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).backgroundColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        boxShadow: [
-                          BoxShadow(color: Theme.of(context).primaryColor, blurRadius: 1)
-                        ]),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: ListView(
+            FadeAnimation(1, Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: Center(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/3,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).backgroundColor,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(color: Theme.of(context).primaryColor, blurRadius: 1)
+                          ]),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: ListView(
 
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        children: [
-                          Text(
-                            news.title,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(news.publisher,
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold)),
-                          SizedBox(
-                            height: 25,
-                          ),
-                          Text(news.text,
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).primaryColor)),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text("author:  " + news.author,
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic)),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text("date:  " + news.date,
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic)),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text("Full Story at:  ",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic)),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          InkWell(
-                            child: Text(
-                              news.url,
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Theme.of(context).accentColor,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
-                                decoration: TextDecoration.underline,
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          children: [
+                            FadeAnimation(1.5,Text(
+                                news.title,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
-                            onTap: () async {
-                              if (await canLaunch(news.url))
-                                await launch(news.url);
-                            },
-                          ),
-                          SizedBox(
-                            height: 25,
-                          ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            FadeAnimation(2, Text(news.publisher,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            FadeAnimation(2.5,Text(news.text,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Theme.of(context).primaryColor)),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            FadeAnimation(3, Text("author:  " + news.author,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic)),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            FadeAnimation(3.5, Text("date:  " + news.date,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic)),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            FadeAnimation(4, Text("Full Story at:  ",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic)),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            FadeAnimation(4.5, InkWell(
+                                child: Text(
+                                  news.url,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Theme.of(context).accentColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.italic,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                                onTap: () async {
+                                  if (await canLaunch(news.url))
+                                    await launch(news.url);
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
 
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

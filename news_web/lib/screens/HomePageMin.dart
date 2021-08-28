@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:news_web/models/PublicValue.dart';
@@ -81,7 +82,7 @@ class HomePageMin extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width*10/12,
                 child: ListView.builder(itemBuilder: (context ,index){
-                  return ItemsMin(newsInApp[index]);
+                  return FadeAnimation(0.5*index, ItemsMin(newsInApp[index]));
                 },
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
